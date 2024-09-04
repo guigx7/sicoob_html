@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          font-family: sans-serif;
+          margin: 0;
+          background-color: #e6e6e6;">
+    <div style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #003642;
+            border-radius: 25px;
+            -webkit-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.35);
+            -moz-box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.35);
+            box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.35);
+            padding: 20px;">
+      <div style="
+                display: flex;
+                width: 800px;
+                height: auto;
+                align-items: center;
+                flex-direction: column;
+                background-color: #e6e6e6;
+                border-radius: 15px;
+                padding: 20px;
+                box-sizing: border-box;">
+        <div style="text-align: center;">
+          <img src="https://i.postimg.cc/m2VntNz5/test-img.jpg" alt="Sicoob Logo"
+            style="width: 200px; height: auto; border-radius: 25px;">
+        </div>
+        <h3 style="
+                      font-weight: bolder;
+                      color: #003641;
+                      margin: 35px 0 10px;
+                      text-decoration: none;
+                      font-size: 20px;">
+          <strong>Informações do Contato:</strong>
+        </h3>
+        <div style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  border-radius: 10px;
+                  padding: 15px;
+                  width: 100%;
+                  box-sizing: border-box;">
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="documento" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">{global:docType}:</label>
+            <input type="text" id="documento" name="documento" readonly value="{global:doc}" style="
+                          border: 1px solid #696969;
+                          background-color: #e6e6e6;
+                          border-radius: 5px;
+                          padding: 5px;
+                          height: 25px;
+                          flex-grow: 1;
+                          font-size: 16px;">
+            <button style="
+                          width: 70px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-left: 10px;" onclick="copyToClipboard('documento')">Copiar</button>
+          </div>
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="Telefone" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">Telefone:</label>
+            <input type="text" id="Telefone" name="Telefone" readonly value="{global:tel}" style="
+                          border: 1px solid #696969;
+                          background-color: #e6e6e6;
+                          border-radius: 5px;
+                          padding: 5px;
+                          height: 25px;
+                          flex-grow: 1;
+                          font-size: 16px;">
+            <button style="
+                          width: 70px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-left: 10px;" onclick="copyToClipboard('Telefone')">Copiar</button>
+          </div>
+
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="Opcao" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">Opção URA:</label>
+            <input type="text" id="Opcao" name="Opcao" readonly value="{global:nav}" style="
+                          border: 1px solid #696969;
+                          background-color: #e6e6e6;
+                          border-radius: 5px;
+                          padding: 5px;
+                          height: 25px;
+                          flex-grow: 1;
+                          font-size: 16px;">
+            <button style="
+                          width: 70px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-left: 10px;" onclick="copyToClipboard('Opcao')">Copiar</button>
+          </div>
+
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="navegacaoURA" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">Caminho na URA:</label>
+            <select id="navegacaoURA" name="navegacaoURA" style="
+                          border: 1px solid #696969;
+                          background-color: #e6e6e6;
+                          color: #000000;
+                          border-radius: 5px;
+                          padding: 5px;
+                          height: 35px;
+                          max-width: 100%;
+                          width: 100px;
+                          flex-grow: 1;
+                          font-size: 16px;">
+            </select>
+
+            <button style="
+                          width: 70px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-left: 10px;" onclick="copyToClipboard('Caminho')">Copiar</button>
+
+          </div>
+
+
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="Protocolo" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">Protocolo:</label>
+            <input type="text" id="Protocolo" name="Protocolo" placeholder="Cole o protocolo aqui." style="
+                          border: 1px solid #696969;
+                          background-color: #e6e6e6;
+                          border-radius: 5px;
+                          padding: 5px;
+                          height: 25px;
+                          flex-grow: 1;
+                          font-size: 16px;
+                          margin-right: 8px;">
+
+
+            <select style="
+                          border: 1px solid #696969;
+                          background-color: #e6e6e6;
+                          color: #000000;
+                          border-radius: 5px;
+                          padding: 5px;
+                          height: 36px;
+                          flex-grow: 1;
+                          font-size: 16px;">
+              <option value="Teste">Sistema:</option>
+              <option value="Teste">SipagDirect</option>
+              <option value="Teste">Sales Force</option>
+              <option value="Teste">Top Desk</option>
+              <option value="Teste">Visão 360</option>
+            </select>
+            <button style="
+                          width: 70px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-left: 10px;" onclick="copyToClipboard('Protocolo')">Salvar</button>
+          </div>
+
+
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="ListaTransf" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">Lista de Transf.:</label>
+            <select style="
+            border: 1px solid #696969;
+            background-color: #e6e6e6;
+            color: #000000;
+            border-radius: 5px;
+            padding: 5px;
+            height: 36px;
+            flex-grow: 1;
+            max-width: 100%;
+            width: 100px;
+            font-size: 16px;">
+              <option value="Teste">Lista de Transferência:</option>
+              <option value="Teste">Opção 1</option>
+              <option value="Teste">Opção 2</option>
+              <option value="Teste">Opção 3</option>
+              <option value="Teste">Opção 4</option>
+              <option value="Teste">Opção 5</option>
+            </select>
+            <button style="
+                          width: 70px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-left: 10px;">Transferir</button>
+          </div>
+
+
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="MotivoDesc" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">Motivo Desc.:</label>
+
+
+            <select style="
+                            border: 1px solid #696969;
+                            background-color: #e6e6e6;
+                            color: #000000;
+                            border-radius: 5px;
+                            padding: 5px;
+                            height: 36px;
+                            flex-grow: 1;
+                            font-size: 16px;">
+              <option value="Teste">Motivo:</option>
+              <option value="Teste">Opção 1</option>
+              <option value="Teste">Opção 2</option>
+              <option value="Teste">Opção 3</option>
+              <option value="Teste">Opção 4</option>
+              <option value="Teste">Opção 5</option>
+              <option value="Teste">Outro</option>
+            </select>
+
+            <input type="text" id="Desc" name="Desc" placeholder="Descrição." style="
+                          border: 1px solid #696969;
+                          background-color: #e6e6e6;
+                          border-radius: 5px;
+                          margin-left: 10px;
+                          padding: 5px;
+                          height: 25px;
+                          flex-grow: 1;
+                          font-size: 16px;">
+            <button style="
+                          width: 70px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-left: 10px;">Pesquisa</button>
+          </div>
+
+
+
+
+
+
+          <input type="text" id="Caminho" name="Caminho" value="{global:caminho}" style="opacity: 0; cursor: default;">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="https://guigx7.github.io/sicoob_scripts/script.js"></script>
+</body>
+
+</html>
