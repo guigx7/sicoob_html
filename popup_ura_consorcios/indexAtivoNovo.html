@@ -25,30 +25,31 @@
             box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.35);
             padding: 20px;">
       <div style="
-      display: flex;
-      width: 800px;
-      height: auto;
-      align-items: center;
-      flex-direction: column;
-      background-color: #e6e6e6;
-      border-radius: 15px;
-      box-sizing: border-box;">
+                display: flex;
+                width: 800px;
+                height: auto;
+                align-items: center;
+                flex-direction: column;
+                background-color: #e6e6e6;
+                border-radius: 15px;
+                box-sizing: border-box;">
 
-<div style="
-          display: flex;
-          width: 800px;
-          height: 55px;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          background-color: #49479D;
-          box-sizing: border-box;
-          margin-bottom: 25px;
-          ">
-<span style="color: #e6e6e6;">Aviso ao Operador: sua tela está sendo gravada. Por favor, certifique-se de que informações pessoais ou confidenciais não estejam visíveis.  
-  Recomenda-se cautela ao exibir informações pessoais ou confidenciais.</span>
-</div>
+        <div style="
+                    display: flex;
+                    width: 800px;
+                    height: 55px;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    background-color: #49479D;
+                    box-sizing: border-box;
+                    margin-bottom: 25px;
+                    ">
+          <span style="color: #e6e6e6;">Aviso ao Operador: sua tela está sendo gravada. Por favor, certifique-se de que informações pessoais ou confidenciais não estejam visíveis.  
+            Recomenda-se cautela ao exibir informações pessoais ou confidenciais.</span>
+        </div>
+        
         <div style="text-align: center;">
           <img src="https://i.postimg.cc/m2VntNz5/test-img.jpg" alt="Sicoob Logo"
             style="width: 200px; height: auto; border-radius: 25px;">
@@ -59,7 +60,7 @@
                       margin: 35px 0 10px;
                       text-decoration: none;
                       font-size: 20px;">
-          <strong>Informações do Contato:</strong>
+          <strong>Informações do Contato Ativo:</strong>
         </h3>
 
 
@@ -82,7 +83,7 @@
                                         font-weight: bold;
                                         width: 150px;
                                         text-align: right;
-                                        margin-right: 8px;">ID Atend. URA:</label>
+                                        margin-right: 8px;">ID:</label>
             <input type="text" id="MasterID" name="MasterID" readonly value="{global:mid}"
               onfocus="copyOnFocus('MasterID')" style="
                                                       border: 1px solid #696969;
@@ -101,6 +102,7 @@
                           color: #ffffff;
                           border-radius: 5px;
                           cursor: pointer;
+                          font-size: 14px;
                           margin-left: 10px;" onclick="copyToClipboard('MasterID')">Copiar</div>
           </div>
 
@@ -109,13 +111,13 @@
                       align-items: center;
                       width: 100%;
                       margin-bottom: 10px;">
-            <label for="documento" style="
+            <label for="documentoDigitado" style="
                           font-weight: bold;
                           width: 150px;
                           text-align: right;
-                          margin-right: 8px;">{global:docType}:</label>
-            <input type="text" id="documento" readonly name="documento" value="{global:doc}"
-              onfocus="copyOnFocus('documento')" style="
+                          margin-right: 8px;">CPF/CNPJ:</label>
+            <input type="text" id="documentoDigitado" name="documentoDigitado" placeholder="Cole o documento aqui."
+              onfocus="copyOnFocus('documentoDigitado')" style="
                           border: 1px solid #696969;
                           background-color: #e6e6e6;
                           border-radius: 5px;
@@ -132,7 +134,8 @@
                           color: #ffffff;
                           border-radius: 5px;
                           cursor: pointer;
-                          margin-left: 10px;" onclick="copyToClipboard('documento')">Copiar</div>
+                          font-size: 14px;
+                          margin-left: 10px;" onclick="consultar('documento')">Consultar</div>
           </div>
 
           <div style="
@@ -163,76 +166,9 @@
                           color: #ffffff;
                           border-radius: 5px;
                           cursor: pointer;
+                          font-size: 14px;
                           margin-left: 10px;" onclick="copyToClipboard('Telefone')">Copiar</div>
           </div>
-
-          <div style="
-                      display: flex;
-                      align-items: center;
-                      width: 100%;
-                      margin-bottom: 10px;">
-            <label for="Opcao" style="
-                          font-weight: bold;
-                          width: 150px;
-                          text-align: right;
-                          margin-right: 8px;">Opção de Origem:</label>
-            <input type="text" id="Opcao" name="Opcao" readonly value="{global:nav}" onfocus="copyOnFocus('Opcao')"
-              style="
-                          border: 1px solid #696969;
-                          background-color: #e6e6e6;
-                          border-radius: 5px;
-                          padding: 5px;
-                          height: 25px;
-                          flex-grow: 1;
-                          font-size: 16px;">
-            <div style="
-                          width: 60px;
-                          padding: 5px;
-                          text-align: center;
-                          border: none;
-                          background-color: #003641;
-                          color: #ffffff;
-                          border-radius: 5px;
-                          cursor: pointer;
-                          margin-left: 10px;" onclick="copyToClipboard('Opcao')">Copiar</div>
-          </div>
-
-          <div style="
-                      display: flex;
-                      align-items: center;
-                      width: 100%;
-                      margin-bottom: 10px;">
-            <label for="navegacaoURA" style="
-                          font-weight: bold;
-                          width: 150px;
-                          text-align: right;
-                          margin-right: 8px;">Navegação:</label>
-            <select id="navegacaoURA" name="navegacaoURA" style="
-                          border: 1px solid #696969;
-                          background-color: #e6e6e6;
-                          color: #000000;
-                          border-radius: 5px;
-                          padding: 5px;
-                          height: 35px;
-                          max-width: 100%;
-                          width: 100px;
-                          flex-grow: 1;
-                          font-size: 16px;">
-            </select>
-
-            <div style="
-                          width: 60px;
-                          padding: 5px;
-                          text-align: center;
-                          border: none;
-                          background-color: #003641;
-                          color: #ffffff;
-                          border-radius: 5px;
-                          cursor: pointer;
-                          margin-left: 10px;" onclick="copyToClipboard('Caminho')">Copiar</div>
-
-          </div>
-
 
           <div style="
                       display: flex;
@@ -280,6 +216,7 @@
                           color: #ffffff;
                           border-radius: 5px;
                           cursor: pointer;
+                          font-size: 14px;
                           margin-left: 10px;" onclick="copyToClipboard('Protocolo')">Copiar</div>
           </div>
 
@@ -289,12 +226,12 @@
                       align-items: center;
                       width: 100%;
                       margin-bottom: 10px;">
-            <label for="ListaTransf" style="
+            <label for="Produto" style="
                           font-weight: bold;
                           width: 150px;
                           text-align: right;
-                          margin-right: 8px;">Lista de Transf.:</label>
-            <select id="ListaTransf" style="
+                          margin-right: 8px;">Produto:</label>
+            <select id="Produto" style="
             border: 1px solid #696969;
             background-color: #e6e6e6;
             color: #000000;
@@ -306,7 +243,7 @@
             width: 100px;
             font-size: 16px;">
         </select>
-            <button type="submit" value="000" id="openConfirmation" style="
+            <button type="submit" value="000" id="Produto" disabled style="
                           width: 70px;
                           height: 30px;
                           padding: 5px;
@@ -315,7 +252,8 @@
                           background-color: #003641;
                           color: #ffffff;
                           border-radius: 5px;
-                          cursor: pointer;
+                          cursor: default;
+                          opacity: 0;
                           margin-left: 10px;">Transferir</button>
           </div>
 
@@ -325,14 +263,51 @@
                       align-items: center;
                       width: 100%;
                       margin-bottom: 10px;">
-            <label for="MotivoDesc" style="
+            <label for="Assunto" style="
                           font-weight: bold;
                           width: 150px;
                           text-align: right;
-                          margin-right: 8px;">Motivo Desc.:</label>
+                          margin-right: 8px;">Assunto:</label>
+            <select id="Assunto" style="
+            border: 1px solid #696969;
+            background-color: #e6e6e6;
+            color: #000000;
+            border-radius: 5px;
+            padding: 5px;
+            height: 36px;
+            flex-grow: 1;
+            max-width: 100%;
+            width: 100px;
+            font-size: 16px;">
+        </select>
+            <button type="submit" value="000" id="Assunto" disabled style="
+                          width: 70px;
+                          height: 30px;
+                          padding: 5px;
+                          text-align: center;
+                          border: none;
+                          background-color: #003641;
+                          color: #ffffff;
+                          border-radius: 5px;
+                          cursor: default;
+                          opacity: 0;
+                          margin-left: 10px;">Transferir</button>
+          </div>
 
 
-            <select id="MotivoDesc" style="
+          <div style="
+                      display: flex;
+                      align-items: center;
+                      width: 100%;
+                      margin-bottom: 10px;">
+            <label for="StatusContato" style="
+                          font-weight: bold;
+                          width: 150px;
+                          text-align: right;
+                          margin-right: 8px;">Status do Contato:</label>
+
+
+            <select id="StatusContato" style="
                             border: 1px solid #696969;
                             background-color: #e6e6e6;
                             color: #000000;
@@ -341,11 +316,10 @@
                             height: 36px;
                             flex-grow: 1;
                             font-size: 16px;">
-              <option value="Atendimento Concluído">Atendimento Concluído</option>
-              <option value="Atendimento Não Autorizado">Atendimento Não Autorizado</option>
-              <option value="ChamadaMuda">Chamada Muda</option>
-              <option value="Destrato">Destrato</option>
-              <option value="Outro">Outro</option>
+              <option value="Atendimento Concluído">Contato com o Responsável</option>
+              <option value="Atendimento Não Autorizado">Engano</option>
+              <option value="ChamadaMuda">Não Incomodar</option>
+              <option value="Destrato">Terceiro</option>
             </select>
 
             <button id="btnPesquisa" value="000" type="submit" style="
@@ -358,7 +332,7 @@
                           color: #ffffff;
                           border-radius: 5px;
                           cursor: pointer;
-                          margin-left: 10px;">Pesquisa</button>
+                          margin-left: 10px;">Finalizar</button>
           </div>
 
 
@@ -370,14 +344,12 @@
           <input type="text" id="SkillT" name="SkillT" value="{global:skill}" style="opacity: 0; cursor: default;">
           <input type="text" id="SkillOrigem" name="SkillOrigem" value="{global:skillorigem}" style="opacity: 0; cursor: default;">
 
-
-
         </div>
       </div>
     </div>
   </div>
   <!-- <script type="text/javascript" src="script_test.js"></script> -->
-  <script type="text/javascript" src="https://guigx7.github.io/sicoob_scripts/scriptConsorciosV2.js"></script>
+  <script type="text/javascript" src="https://guigx7.github.io/sicoob_scripts/scriptAtivo.js"></script>
 </body>
 
 </html>

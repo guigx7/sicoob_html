@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div class="container">
+    <div class="content">
+    
+        <div id="modal" style="display:none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.7); color: white; text-align: center;">
+            <div style="background-color: #003642; padding: 20px; margin-top: 50px; border-radius: 10px; max-width: 500px; margin-left: auto; margin-right: auto;">
+              <h2>Resultado da Consulta</h2>
+              <pre id="resultado"></pre>
+              <button onclick="closeModal()">Fechar</button>
+            </div>
+          </div>
+    
+      <div class="header">
+        
+      </div>
+      <div class="logo">
+        <img src="https://i.postimg.cc/m2VntNz5/test-img.jpg" alt="Sicoob Logo">
+      </div>
+      <h3 class="title">Informações do Contato Ativo:</h3>
+      <div class="form-section">
+        <div class="form-group">
+          <label for="MasterID">Id:</label>
+          <input type="text" id="MasterID" name="MasterID" readonly value="{global:mid}" onfocus="copyOnFocus('MasterID')">
+          <div class="button" onclick="copyToClipboard('MasterID')">Copiar</div>
+        </div>
+        <div class="form-group">
+            <div class="form-group">
+                <label for="documento">CPF/CNPJ:</label>
+                <input type="text" id="documento" name="documento" placeholder="Digite o CPF ou CNPJ">
+              </div>
+        
+              <div class="form-group">
+                <button onclick="consultar()">Consultar</button>
+              </div>
+        </div>
+        <div class="form-group">
+          <label for="Telefone">Telefone:</label>
+          <input type="text" id="Telefone" name="Telefone" readonly value="Telefone Digitado" onfocus="copyOnFocus('Telefone')">
+          <div class="button" onclick="copyToClipboard('Telefone')">Copiar</div>
+        </div>
+        <div class="form-group">
+          <label for="Protocolo">Protocolo:</label>
+          <input class="protocol-form" type="text" id="Protocolo" name="Protocolo" placeholder="Cole o protocolo aqui" onfocus="copyOnFocus('Protocolo')">
+          <select class="select-group" id="Sistema">
+            <option value="">Sistema:</option>
+            <option value="Visão 360">Visão 360</option>
+            <option value="Sipag Direct">Sipag Direct</option>
+            <option value="Sales Force">Sales Force</option>
+            <option value="Top Desk">Top Desk</option>
+          </select>
+          <div class="button" onclick="copyToClipboard('Protocolo')">Copiar</div>
+        </div>
+        <div class="form-group">
+            <label for="Produto">Produto:</label>
+            <select id="Produto">
+              <option value="Cartao">Cartão</option>
+              <option value="Consorcio">Consórcio</option>
+              <option value="Coopcerto">Coopcerto</option>
+              <option value="Coopera">Coopera</option>
+              <option value="CreditoImobiliário">Crédito imobiliário</option>
+              <option value="Previdencia">Previdência</option>
+              <option value="Seguros">Seguros</option>
+              <option value="Sipag1">Sipag 1.0</option>
+              <option value="Sipag2">Sipag 2.0</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="Produto">Assunto:</label>
+            <select id="Produto">
+              <option value="Cartao">Campanha1</option>
+              <option value="Consorcio">Campanha1</option>
+            </select>
+          </div>
+        <div class="form-group">
+          <label for="ListaStatus">Status do Contato:</label>
+          <select id="MotivoDesc">
+            <option value="Contato com o responsável">Contato com o responsável</option>
+            <option value="Engano">Engano</option>
+            <option value="Não incomodar">Não incomodar</option>
+            <option value="Terceiro">Terceiro</option>
+          </select>
+          <button id="btnPesquisa" onclick="consultar()">Finalizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  </script>
+</body>
+
+</html>
