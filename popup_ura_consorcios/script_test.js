@@ -1,21 +1,15 @@
-// Função de copiar texto ao clicar no botão "Copiar"
+// Funções de cópia
 function copyToClipboard(elementId) {
   const copyText = document.getElementById(elementId);
   if (copyText) {
     copyText.select();
     document.execCommand("copy");
-    console.log("Copiado pelo botão: " + copyText.value);
+    console.log(`Copiado: ${copyText.value}`);
   }
 }
 
-// Função de copiar texto ao focar no campo
 function copyOnFocus(elementId) {
-  const copyText = document.getElementById(elementId);
-  if (copyText) {
-    copyText.select();
-    document.execCommand("copy");
-    console.log("Copiado com foco: " + copyText.value);
-  }
+  copyToClipboard(elementId);
 }
 
 // Função auxiliar para criar opções
@@ -26,63 +20,112 @@ function createOption(value, text) {
   return option;
 }
 
-// Preencher select de Produto 
-function populateProduto() {
-  const select = document.getElementById('Produto');
-  select.innerHTML = ''; 
+// Preencher dropdown de navegação
+function populateNavigation() {
+  const caminho = document.getElementById('Caminho').value.split(',');
+  const select = document.getElementById('navegacaoURA');
+  
+  select.innerHTML = '';
+  select.appendChild(createOption('', 'Navegação:')).disabled = true;
 
-  select.appendChild(createOption('SelecioneOpcao', 'Selecione uma Opção'));
-  select.appendChild(createOption('Cartao', 'Cartão'));
-  select.appendChild(createOption('Consorcio', 'Consórcio'));
-  select.appendChild(createOption('Coopcerto', 'Coopcerto'));
-  select.appendChild(createOption('Coopera', 'Coopera'));
-  select.appendChild(createOption('CreditoImobiliario', 'Credito Imobiliário'));
-  select.appendChild(createOption('Previdencia', 'Previdência'));
-  select.appendChild(createOption('Seguros', 'Seguros'));
-  select.appendChild(createOption('Sipag1', 'Sipag 1.0'));
-  select.appendChild(createOption('Sipag2', 'Sipag 2.0'));
+  caminho.forEach(item => {
+    const option = createOption(item.trim(), item.trim());
+    option.disabled = true;
+    select.appendChild(option);
+  });
 }
 
-// Preencher select de Assunto
-function populateAssunto() {
-  const select = document.getElementById('Assunto');
-  select.innerHTML = ''; 
+// Configuração de skills
+const skillConfig = {
+  skills: {
+    "20868796": "Adq Cabal Cadastro",
+    "20868797": "Adq Cabal Atendente",
+    "20868798": "Adq Cabal Credenciamento",
+    "20868799": "Adq Cabal Portal",
+    "20868801": "Adq Cabal Financeiro",
+    "20868802": "Adq Cabal Retencao",
+    "20868803": "Adq Cabal Suporte Tecnico"
+  },
   
-  select.appendChild(createOption('Selecione uma Opção', 'Selecione uma Opção'));
-  select.appendChild(createOption('ContatoResponsavel', 'Contato com o Responsável'));
-  select.appendChild(createOption('Engano', 'Engano'));
-  select.appendChild(createOption('NaoIncomodar', 'Não Incomodar'));
-  select.appendChild(createOption('Terceiro', 'Terceiro'));
-}
-
-window.onload = function () {
-  populateProduto();
-  populateAssunto();
-
-  // Configuração da Skill de Origem
-  const skillOrigemElement = document.getElementById('SkillOrigem');
-  const origemElement = document.getElementById('Origem');
-  
-  if (skillOrigemElement && origemElement) {
-    const skillMap = {
-      "20868796": "Adq Cabal Cadastro",
-      "20868797": "Adq Cabal Atendente",
-      "20868798": "Adq Cabal Credenciamento",
-      "20868799": "Adq Cabal Portal",
-      "20868801": "Adq Cabal Financeiro",
-      "20868802": "Adq Cabal Retencao",
-      "20868803": "Adq Cabal Suporte Tecnico"
-    };
-
-    const skillFormatada = skillMap[skillOrigemElement.value] 
-      ? `${skillOrigemElement.value} - ${skillMap[skillOrigemElement.value]}`
-      : " ";
-    
-    origemElement.value = skillFormatada;
+  transferOptions: {
+    default: [
+      {value: "20868796", text: "Adq Cabal Cadastro"},
+      {value: "20868797", text: "Adq Cabal Atendente"},
+      {value: "20868798", text: "Adq Cabal Credenciamento"},
+      {value: "20868799", text: "Adq Cabal Portal"},
+      {value: "20868801", text: "Adq Cabal Financeiro"},
+      {value: "20868802", text: "Adq Cabal Retencao"},
+      {value: "20868803", text: "Adq Cabal Suporte Tecnico"},
+      {value: "PUC", text: "URA PUC"}
+    ]
   }
 };
 
-// Configuração do Botão Pesquisa
-document.getElementById("btnPesquisa").addEventListener("click", function () {
-  this.value = "pesquisa";
-});
+// Gerenciar transferências
+function setupTransfers() {
+  const skillValue = document.getElementById("SkillT").value;
+  const select = document.getElementById("ListaTransf");
+  const options = skillConfig.transferOptions[skillValue] || skillConfig.transferOptions.default;
+
+  select.innerHTML = '';
+  select.appendChild(createOption('', 'Lista de Transferência:')).disabled = true;
+
+  options.forEach(opt => {
+    if (opt.value !== skillValue) {
+      select.appendChild(createOption(opt.value, opt.text));
+    }
+  });
+}
+
+// Exibir skill de origem
+function showOriginSkill() {
+  const skillOrigem = document.getElementById('SkillOrigem').value;
+  const origemElement = document.getElementById('Origem');
+  
+  if (origemElement) {
+    const skillText = skillConfig.skills[skillOrigem] || '';
+    origemElement.value = skillText ? `${skillOrigem} - ${skillText}` : '';
+  }
+}
+
+// Controle de transferência
+function handleTransfer() {
+  const select = document.getElementById('ListaTransf');
+  const button = document.getElementById('openConfirmation');
+  
+  button.disabled = !select.value;
+  button.style.cursor = select.value ? "pointer" : "not-allowed";
+
+  select.addEventListener('change', () => {
+    button.disabled = !select.value;
+    button.style.cursor = select.value ? "pointer" : "not-allowed";
+  });
+}
+
+// Confirmar transferência
+function confirmTransfer() {
+  const opTransf = document.getElementById('ListaTransf').value;
+  if (!opTransf) return alert("Nenhuma opção selecionada.");
+
+  const skillName = skillConfig.skills[opTransf] || 
+                   (opTransf === 'PUC' ? 'URA PUC' : 'Skill Desconhecida');
+  
+  if (confirm(`Realmente deseja transferir para ${skillName}?`)) {
+    document.getElementById('openConfirmation').value = "transf";
+    console.log('Transferência confirmada para:', skillName);
+  }
+}
+
+// Inicialização
+window.onload = function() {
+  populateNavigation();
+  setupTransfers();
+  showOriginSkill();
+  handleTransfer();
+
+  document.getElementById('openConfirmation').addEventListener('click', confirmTransfer);
+  document.getElementById("btnPesquisa").addEventListener("click", function() {
+    this.value = "pesquisa";
+    console.log('Botão pesquisa acionado');
+  });
+};
