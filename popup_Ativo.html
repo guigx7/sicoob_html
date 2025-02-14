@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: sans-serif;
+        margin: 0;
+        background-color: #e6e6e6;
+      "
+    >
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #003642;
+          border-radius: 25px;
+          -webkit-box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.35);
+          -moz-box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.35);
+          box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.35);
+          padding: 20px;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            width: 800px;
+            height: auto;
+            align-items: center;
+            flex-direction: column;
+            background-color: #e6e6e6;
+            border-radius: 15px;
+            box-sizing: border-box;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              width: 800px;
+              height: 55px;
+              flex-direction: row;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              background-color: #49479d;
+              box-sizing: border-box;
+              margin-bottom: 25px;
+            "
+          >
+            <span style="color: #e6e6e6"
+              >Aviso ao Operador: sua tela está sendo gravada. Por favor,
+              certifique-se de que informações pessoais ou confidenciais não
+              estejam visíveis. Recomenda-se cautela ao exibir informações
+              pessoais ou confidenciais.</span
+            >
+          </div>
+
+          <div style="text-align: center">
+            <img
+              src="https://i.postimg.cc/m2VntNz5/test-img.jpg"
+              alt="Sicoob Logo"
+              style="width: 200px; height: auto; border-radius: 25px"
+            />
+          </div>
+          <h3
+            style="
+              font-weight: bolder;
+              color: #003641;
+              margin: 35px 0 10px;
+              text-decoration: none;
+              font-size: 20px;
+            "
+          >
+            <strong>Informações do Contato Ativo:</strong>
+          </h3>
+
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              border-radius: 10px;
+              padding: 15px;
+              width: 100%;
+              box-sizing: border-box;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+              "
+            >
+              <label
+                for="MasterID"
+                style="
+                  font-weight: bold;
+                  width: 150px;
+                  text-align: right;
+                  margin-right: 8px;
+                "
+                >ID:</label
+              >
+              <input
+                type="text"
+                id="MasterID"
+                name="MasterID"
+                readonly
+                value="{global:mid}"
+                onfocus="copyOnFocus('MasterID')"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 25px;
+                  flex-grow: 1;
+                  font-size: 16px;
+                "
+              />
+              <div
+                style="
+                  width: 60px;
+                  padding: 5px;
+                  text-align: center;
+                  border: none;
+                  background-color: #003641;
+                  color: #ffffff;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-size: 14px;
+                  margin-left: 10px;
+                "
+                onclick="copyToClipboard('MasterID')"
+              >
+                Copiar
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+              "
+            >
+              <label
+                for="documentoDigitado"
+                style="
+                  font-weight: bold;
+                  width: 150px;
+                  text-align: right;
+                  margin-right: 8px;
+                "
+                >CPF/CNPJ:</label
+              >
+              <input
+                type="text"
+                id="documentoDigitado"
+                name="documentoDigitado"
+                placeholder="Cole o documento aqui."
+                onfocus="copyOnFocus('documentoDigitado')"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 25px;
+                  flex-grow: 1;
+                  font-size: 16px;
+                "
+              />
+              <button
+                id="btnConsultar"
+                value="000"
+                type="submit"
+                style="
+                  width: 70px;
+                  height: 30px;
+                  padding: 5px;
+                  text-align: center;
+                  border: none;
+                  background-color: #003641;
+                  color: #ffffff;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  margin-left: 10px;
+                "
+              >
+                Consultar
+              </button>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+              "
+            >
+              <label
+                for="Telefone"
+                style="
+                  font-weight: bold;
+                  width: 150px;
+                  text-align: right;
+                  margin-right: 8px;
+                "
+                >Telefone:</label
+              >
+              <input
+                type="text"
+                id="Telefone"
+                name="Telefone"
+                readonly
+                value="{global:tel}"
+                onfocus="copyOnFocus('Telefone')"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 25px;
+                  flex-grow: 1;
+                  font-size: 16px;
+                "
+              />
+              <div
+                style="
+                  width: 60px;
+                  padding: 5px;
+                  text-align: center;
+                  border: none;
+                  background-color: #003641;
+                  color: #ffffff;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-size: 14px;
+                  margin-left: 10px;
+                "
+                onclick="copyToClipboard('Telefone')"
+              >
+                Copiar
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+              "
+            >
+              <label
+                for="Protocolo"
+                style="
+                  font-weight: bold;
+                  width: 150px;
+                  text-align: right;
+                  margin-right: 8px;
+                "
+                >Protocolo:</label
+              >
+              <input
+                type="text"
+                id="Protocolo"
+                name="Protocolo"
+                placeholder="Cole o protocolo aqui."
+                onfocus="copyOnFocus('Protocolo')"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 25px;
+                  flex-grow: 1;
+                  font-size: 16px;
+                  margin-right: 8px;
+                "
+              />
+
+              <select
+                id="Sistema"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  color: #000000;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 36px;
+                  flex-grow: 1;
+                  font-size: 16px;
+                "
+              >
+                <option value="">Sistema:</option>
+                <option value="Visão 360">Visão 360</option>
+                <option value="Sipag Direct">Sipag Direct</option>
+                <option value="Sales Force">Sales Force</option>
+                <option value="Top Desk">Top Desk</option>
+              </select>
+              <div
+                style="
+                  width: 60px;
+                  padding: 5px;
+                  text-align: center;
+                  border: none;
+                  background-color: #003641;
+                  color: #ffffff;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  font-size: 14px;
+                  margin-left: 10px;
+                "
+                onclick="copyToClipboard('Protocolo')"
+              >
+                Copiar
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+              "
+            >
+              <label
+                for="Produto"
+                style="
+                  font-weight: bold;
+                  width: 150px;
+                  text-align: right;
+                  margin-right: 8px;
+                "
+                >Produto:</label
+              >
+              <select
+                id="Produto"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  color: #000000;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 36px;
+                  flex-grow: 1;
+                  max-width: 100%;
+                  width: 100px;
+                  font-size: 16px;
+                "
+              ></select>
+              <button
+                type="submit"
+                value="000"
+                id="Produto"
+                disabled
+                style="
+                  width: 70px;
+                  height: 30px;
+                  padding: 5px;
+                  text-align: center;
+                  border: none;
+                  background-color: #003641;
+                  color: #ffffff;
+                  border-radius: 5px;
+                  cursor: default;
+                  opacity: 0;
+                  margin-left: 10px;
+                "
+              >
+                Transferir
+              </button>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+              "
+            >
+              <label
+                for="Assunto"
+                style="
+                  font-weight: bold;
+                  width: 150px;
+                  text-align: right;
+                  margin-right: 8px;
+                "
+                >Assunto:</label
+              >
+              <select
+                id="Assunto"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  color: #000000;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 36px;
+                  flex-grow: 1;
+                  max-width: 100%;
+                  width: 100px;
+                  font-size: 16px;
+                "
+              ></select>
+              <button
+                type="submit"
+                value="000"
+                id="Assunto"
+                disabled
+                style="
+                  width: 70px;
+                  height: 30px;
+                  padding: 5px;
+                  text-align: center;
+                  border: none;
+                  background-color: #003641;
+                  color: #ffffff;
+                  border-radius: 5px;
+                  cursor: default;
+                  opacity: 0;
+                  margin-left: 10px;
+                "
+              >
+                Transferir
+              </button>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 10px;
+              "
+            >
+              <label
+                for="StatusContato"
+                style="
+                  font-weight: bold;
+                  width: 150px;
+                  text-align: right;
+                  margin-right: 8px;
+                "
+                >Status do Contato:</label
+              >
+
+              <select
+                id="StatusContato"
+                style="
+                  border: 1px solid #696969;
+                  background-color: #e6e6e6;
+                  color: #000000;
+                  border-radius: 5px;
+                  padding: 5px;
+                  height: 36px;
+                  flex-grow: 1;
+                  font-size: 16px;
+                "
+              >
+                <option value="Atendimento Concluído">
+                  Contato com o Responsável
+                </option>
+                <option value="Atendimento Não Autorizado">Engano</option>
+                <option value="ChamadaMuda">Não Incomodar</option>
+                <option value="Destrato">Terceiro</option>
+              </select>
+
+              <button
+                id="btnFinalizar"
+                value="000"
+                type="submit"
+                style="
+                  width: 70px;
+                  height: 30px;
+                  padding: 5px;
+                  text-align: center;
+                  border: none;
+                  background-color: #003641;
+                  color: #ffffff;
+                  border-radius: 5px;
+                  cursor: pointer;
+                  margin-left: 10px;
+                "
+              >
+                Finalizar
+              </button>
+            </div>
+
+            <!-- <input
+              type="text"
+              id="Res"
+              name="Res"
+              value='{
+              "content": [
+                {
+                  "account": {
+                    "numeroCoperativa": 3179,
+                    "numContaCorrente": 170780,
+                    "institution": {
+                      "name": "CC N. DE MINAS LTDA. - SICOOB NOROESTE DE MINAS ",
+                      "number": 3179,
+                      "responsible": {
+                        "name": "SICOOB CENTRAL CREDIMINAS",
+                        "numberInstitution": 1003
+                      }
+                    },
+                    "servicePoint": {
+                      "name": "PA-ATENDIMENTO DIGITAL",
+                      "number": 97
+                    }
+                  }
+                }
+              ],
+              "metadata": {
+                "message": "Requisição efetuada com sucesso!"
+              }
+            }'
+              style="opacity: 0; cursor: default"
+            /> -->
+
+            <input
+              type="text"
+              id="Res"
+              name="Res"
+              value="{global:resultApiConsulta}"
+              style="opacity: 0; cursor: default"
+            />
+            
+            <div id="divConsulta" style="background-color: red; width: 100%; display: none;">
+              <div style="text-align: center; width: 100%">
+                <h3
+                  style="
+                    font-weight: bolder;
+                    color: #003641;
+                    margin: 35px 0 10px;
+                    text-decoration: none;
+                    font-size: 20px;
+                  "
+                >
+                  <strong>Informações da Consulta:</strong>
+                </h3>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  width: 100%;
+                  margin-bottom: 10px;
+                "
+              >
+                <label
+                  for="cooperativa"
+                  style="
+                    font-weight: bold;
+                    width: 150px;
+                    text-align: right;
+                    margin-right: 8px;
+                  "
+                  >Cooperativa:</label
+                >
+                <input
+                  type="text"
+                  id="cooperativa"
+                  name="cooperativa"
+                  readonly
+                  value=" "
+                  onfocus="copyOnFocus('cooperativa')"
+                  style="
+                    border: 1px solid #696969;
+                    background-color: #e6e6e6;
+                    border-radius: 5px;
+                    padding: 5px;
+                    height: 25px;
+                    flex-grow: 1;
+                    font-size: 16px;
+                  "
+                />
+                <div
+                  style="
+                    width: 60px;
+                    padding: 5px;
+                    text-align: center;
+                    border: none;
+                    background-color: #003641;
+                    color: #ffffff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    margin-left: 10px;
+                  "
+                  onclick="copyToClipboard('cooperativa')"
+                >
+                  Copiar
+                </div>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  width: 100%;
+                  margin-bottom: 10px;
+                "
+              >
+                <label
+                  for="contaCorrente"
+                  style="
+                    font-weight: bold;
+                    width: 150px;
+                    text-align: right;
+                    margin-right: 8px;
+                  "
+                  >Conta Corrente:</label
+                >
+                <input
+                  type="text"
+                  id="contaCorrente"
+                  name="contaCorrente"
+                  readonly
+                  value=" "
+                  onfocus="copyOnFocus('contaCorrente')"
+                  style="
+                    border: 1px solid #696969;
+                    background-color: #e6e6e6;
+                    border-radius: 5px;
+                    padding: 5px;
+                    height: 25px;
+                    flex-grow: 1;
+                    font-size: 16px;
+                  "
+                />
+                <div
+                  style="
+                    width: 60px;
+                    padding: 5px;
+                    text-align: center;
+                    border: none;
+                    background-color: #003641;
+                    color: #ffffff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    margin-left: 10px;
+                  "
+                  onclick="copyToClipboard('contaCorrente')"
+                >
+                  Copiar
+                </div>
+              </div>
+
+              <div
+                style="
+                  display: flex;
+                  align-items: center;
+                  width: 100%;
+                  margin-bottom: 10px;
+                "
+              >
+                <label
+                  for="instituicao"
+                  style="
+                    font-weight: bold;
+                    width: 150px;
+                    text-align: right;
+                    margin-right: 8px;
+                  "
+                  >Instituição:</label
+                >
+                <input
+                  type="text"
+                  id="instituicao"
+                  name="instituicao"
+                  readonly
+                  value=" "
+                  onfocus="copyOnFocus('instituicao')"
+                  style="
+                    border: 1px solid #696969;
+                    background-color: #e6e6e6;
+                    border-radius: 5px;
+                    padding: 5px;
+                    height: 25px;
+                    flex-grow: 1;
+                    font-size: 16px;
+                  "
+                />
+                <div
+                  style="
+                    width: 60px;
+                    padding: 5px;
+                    text-align: center;
+                    border: none;
+                    background-color: #003641;
+                    color: #ffffff;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    font-size: 14px;
+                    margin-left: 10px;
+                  "
+                  onclick="copyToClipboard('instituicao')"
+                >
+                  Copiar
+                </div>
+              </div>
+            </div>
+           
+
+            <div id="erroConsulta" style="display: none">
+              <h3
+              style="
+                    font-weight: bolder;
+                    color: #990000;
+                    margin: 35px 0 10px;
+                    text-decoration: none;
+                    font-size: 20px;
+                    "
+                >
+                <strong>Erro ao consultar documento.</strong>
+              </h3>
+            </div>
+
+
+
+
+          </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="script_test.js"></script>
+    <!-- <script type="text/javascript" src="https://guigx7.github.io/sicoob_js/scriptAtivo.js"></script> -->
+  </body>
+</html>
